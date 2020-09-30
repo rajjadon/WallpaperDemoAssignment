@@ -5,6 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.splash.MainActivity">
 
+    <data>
+
+        <variable
+            name="imageUrl"
+            type="java.lang.String" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,7 +26,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_baseline_image" />
+            loadImage="@{imageUrl}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

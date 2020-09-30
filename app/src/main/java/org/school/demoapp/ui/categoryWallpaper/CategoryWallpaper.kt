@@ -10,8 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import org.school.demoapp.AppConstant
-import org.school.demoapp.AppConstant.STORAGE_REQUEST
-import org.school.demoapp.AppConstant.category
+import org.school.demoapp.AppConstant.Companion.STORAGE_REQUEST
+import org.school.demoapp.AppConstant.Companion.category
 import org.school.demoapp.Downloader
 import org.school.demoapp.R
 import org.school.demoapp.data.local.DataBaseHandler

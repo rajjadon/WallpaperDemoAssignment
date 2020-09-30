@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.favoriteList.FavoriteImageList"></activity>
+        <activity android:name=".ui.favoriteList.FavoriteImageList"/>
         <activity android:name=".ui.categoryWallpaper.CategoryWallpaper" />
         <activity android:name=".ui.homeScreen.WallpapersHomeScreen" />
         <activity android:name=".ui.splash.MainActivity">

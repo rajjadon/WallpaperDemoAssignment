@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_wallpapers_home_screen.*
 import org.school.demoapp.AppConstant
-import org.school.demoapp.AppConstant.category
+import org.school.demoapp.AppConstant.Companion.category
 import org.school.demoapp.R
 import org.school.demoapp.data.local.DataBaseHandler
 import org.school.demoapp.data.network.model.FavImageList

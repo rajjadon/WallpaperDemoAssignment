@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso
 import org.school.demoapp.R
 import org.school.demoapp.databinding.ActivityMainBinding
 import org.school.demoapp.ui.homeScreen.WallpapersHomeScreen
+import java.util.*
 
 class MainActivity : AppCompatActivity()
 {
@@ -25,15 +26,19 @@ class MainActivity : AppCompatActivity()
         setHandler()
 
         if ( ::mainViewModel.isInitialized )
-
+        {
+            val random = Random()
+            val randomIndex: Int = random.nextInt(10 ) + 1
             mainViewModel.wallpapers.observe(this, Observer {
 
-                it?.wallPaperLists?.get(1)?.largeImageURL?.let { image ->
+                it?.wallPaperLists?.get( randomIndex )?.largeImageURL?.let { image ->
 
-                    Picasso.get().load(image).into(activityMainBinding.image)
+                    activityMainBinding.imageUrl = image
+                    //Picasso.get().load(image).into(activityMainBinding.image)
 
                 }
             })
+        }
     }
 
     private fun setHandler()
@@ -41,6 +46,7 @@ class MainActivity : AppCompatActivity()
        val handler = Handler()
         val r = Runnable {
             startActivity(Intent(this@MainActivity, WallpapersHomeScreen::class.java))
+            finish()
         }
         handler.postDelayed(r, 3000)
     }

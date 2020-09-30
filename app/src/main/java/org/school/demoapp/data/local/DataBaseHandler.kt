@@ -5,23 +5,23 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import org.school.demoapp.AppConstant
+import org.school.demoapp.AppConstant.Companion.COL_FAVORITE
+import org.school.demoapp.AppConstant.Companion.COL_ID
+import org.school.demoapp.AppConstant.Companion.COL_IMAGE_COMMENT
+import org.school.demoapp.AppConstant.Companion.COL_IMAGE_NAME
+import org.school.demoapp.AppConstant.Companion.COL_IMAGE_TYPE
+import org.school.demoapp.AppConstant.Companion.COL_LARGELINK
+import org.school.demoapp.AppConstant.Companion.COL_LIKE
+import org.school.demoapp.AppConstant.Companion.COL_NAME
+import org.school.demoapp.AppConstant.Companion.COL_PREVIIEWLINK
+import org.school.demoapp.AppConstant.Companion.COL_VIEW_IMAGE
+import org.school.demoapp.AppConstant.Companion.DATABASENAME
+import org.school.demoapp.AppConstant.Companion.TABLENAME
 import org.school.demoapp.data.network.model.FavImageList
 import org.school.demoapp.data.network.model.WallPaperList
 
-val DATABASENAME = "MY DATABASE"
-val TABLENAME = "Wallpapers"
-val COL_NAME = "name"
-val COL_PREVIIEWLINK = "previewLink"
-val COL_LARGELINK = "largeLink"
-val COL_IMAGE_NAME = "imageName"
-val COL_IMAGE_TYPE = "imageLink"
-val COL_IMAGE_COMMENT = "imageComment"
-val COL_FAVORITE = "favorite"
-val COL_VIEW_IMAGE = "viewImage"
-val COL_LIKE = "like"
-val COL_ID = "id"
-
-class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASENAME, null, 1)
+class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASENAME, null, 1), AppConstant
 {
     override fun onCreate(db: SQLiteDatabase?) {
         val createTable = "CREATE TABLE " + TABLENAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " VARCHAR(256)," + COL_IMAGE_NAME + " VARCHAR(256)," + COL_IMAGE_TYPE + " VARCHAR(256)," + COL_IMAGE_COMMENT + " VARCHAR(256)," + COL_FAVORITE + " VARCHAR(256)," + COL_VIEW_IMAGE + " VARCHAR(256)," + COL_LIKE + " VARCHAR(256)," + COL_LARGELINK + " VARCHAR(2000)," + COL_PREVIIEWLINK + " VARCHAR(2000))"
