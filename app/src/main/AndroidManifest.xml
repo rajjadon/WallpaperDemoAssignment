@@ -3,8 +3,8 @@
     package="org.school.demoapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.categoryWallpaper.CategoryWallpaper"></activity>
+        <activity android:name=".ui.favoriteList.FavoriteImageList"></activity>
+        <activity android:name=".ui.categoryWallpaper.CategoryWallpaper" />
         <activity android:name=".ui.homeScreen.WallpapersHomeScreen" />
         <activity android:name=".ui.splash.MainActivity">
             <intent-filter>

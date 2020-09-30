@@ -13,12 +13,18 @@ val TABLENAME = "Wallpapers"
 val COL_NAME = "name"
 val COL_PREVIIEWLINK = "previewLink"
 val COL_LARGELINK = "largeLink"
+val COL_IMAGE_NAME = "imageName"
+val COL_IMAGE_TYPE = "imageLink"
+val COL_IMAGE_COMMENT = "imageComment"
+val COL_FAVORITE = "favorite"
+val COL_VIEW_IMAGE = "viewImage"
+val COL_LIKE = "like"
 val COL_ID = "id"
 
 class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASENAME, null, 1)
 {
     override fun onCreate(db: SQLiteDatabase?) {
-        val createTable = "CREATE TABLE " + TABLENAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " VARCHAR(256)," + COL_LARGELINK + " VARCHAR(2000)," + COL_PREVIIEWLINK + " VARCHAR(2000))"
+        val createTable = "CREATE TABLE " + TABLENAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " VARCHAR(256)," + COL_IMAGE_NAME + " VARCHAR(256)," + COL_IMAGE_TYPE + " VARCHAR(256)," + COL_IMAGE_COMMENT + " VARCHAR(256)," + COL_FAVORITE + " VARCHAR(256)," + COL_VIEW_IMAGE + " VARCHAR(256)," + COL_LIKE + " VARCHAR(256)," + COL_LARGELINK + " VARCHAR(2000)," + COL_PREVIIEWLINK + " VARCHAR(2000))"
         db?.execSQL(createTable)
     }
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -32,6 +38,13 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         contentValues.put(COL_NAME, wallpaper.userId)
         contentValues.put(COL_PREVIIEWLINK, wallpaper.previewURL)
         contentValues.put(COL_LARGELINK, wallpaper.largeImageURL)
+        contentValues.put(COL_IMAGE_NAME, wallpaper.tags)
+        contentValues.put(COL_IMAGE_TYPE, wallpaper.type)
+        contentValues.put(COL_IMAGE_COMMENT, wallpaper.comments)
+        contentValues.put(COL_FAVORITE, wallpaper.favorites)
+        contentValues.put(COL_VIEW_IMAGE, wallpaper.views)
+        contentValues.put(COL_LIKE, wallpaper.likes)
+
         val result = database.insert(TABLENAME, null, contentValues)
         if (result == (0).toLong()) {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
@@ -67,7 +80,13 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                     result.getString(result.getColumnIndex(COL_ID)),
                     result.getString(result.getColumnIndex(COL_NAME)),
                     result.getString(result.getColumnIndex(COL_PREVIIEWLINK)),
-                    result.getString(result.getColumnIndex(COL_LARGELINK))
+                    result.getString(result.getColumnIndex(COL_LARGELINK)),
+                    result.getString(result.getColumnIndex(COL_IMAGE_NAME)),
+                    result.getString(result.getColumnIndex(COL_IMAGE_TYPE)),
+                    result.getString(result.getColumnIndex(COL_LIKE)),
+                    result.getString(result.getColumnIndex(COL_IMAGE_COMMENT)),
+                    result.getString(result.getColumnIndex(COL_FAVORITE)),
+                    result.getString(result.getColumnIndex(COL_VIEW_IMAGE))
                 )
                 list.add(favImage)
             }

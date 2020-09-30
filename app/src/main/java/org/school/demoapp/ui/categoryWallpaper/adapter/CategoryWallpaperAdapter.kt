@@ -24,14 +24,14 @@ class CategoryWallpaperAdapter(val action : OnFav) : RecyclerView.Adapter<Catego
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int)
     {
-        var hit = wallpaperList?.get(position)
+        var wallpaper = wallpaperList?.get(position)
 
 
-        wallpaperList?.get(position).let { holder.binding.wallpaper = hit }
+        wallpaperList?.get(position).let { holder.binding.wallpaper = wallpaper }
 
         holder.binding.favUnFave.setOnClickListener {
 
-            hit?.let {
+            wallpaper?.let {
 
                 if ( it.isFav) {
                     it.isFav = false
@@ -47,7 +47,7 @@ class CategoryWallpaperAdapter(val action : OnFav) : RecyclerView.Adapter<Catego
 
         holder.binding.download.setOnClickListener {
 
-            hit?.let {
+            wallpaper?.let {
 
                 action.onDownloadClick( it )
             }

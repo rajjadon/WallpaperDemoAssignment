@@ -38,7 +38,6 @@ class CategoryWallpaper : AppCompatActivity(), AppConstant, OnFav
         viewModel = ViewModelProvider(this).get(HomeScreenViewModel::class.java)
 
         if ( !::db.isInitialized )
-
             db = DataBaseHandler(this@CategoryWallpaper )
 
         init()
@@ -73,7 +72,6 @@ class CategoryWallpaper : AppCompatActivity(), AppConstant, OnFav
                         categoryBinding.svCategory.isRefreshing = false
                         categoryWallpaperAdapter.wallpaperList = hitList
                         categoryBinding.rvCategory.adapter = categoryWallpaperAdapter
-                        categoryWallpaperAdapter.notifyDataSetChanged()
                     }
                 }
             })
