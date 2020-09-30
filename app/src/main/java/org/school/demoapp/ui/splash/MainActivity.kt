@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import org.school.demoapp.R
-import org.school.demoapp.data.WallPapers
 import org.school.demoapp.databinding.ActivityMainBinding
 import org.school.demoapp.ui.homeScreen.WallpapersHomeScreen
 

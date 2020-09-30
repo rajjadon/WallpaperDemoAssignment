@@ -3,7 +3,6 @@ package org.school.demoapp.ui.categoryWallpaper
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Environment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -15,12 +14,12 @@ import org.school.demoapp.AppConstant.STORAGE_REQUEST
 import org.school.demoapp.AppConstant.category
 import org.school.demoapp.Downloader
 import org.school.demoapp.R
-import org.school.demoapp.data.Hit
+import org.school.demoapp.data.local.DataBaseHandler
+import org.school.demoapp.data.network.model.Hit
 import org.school.demoapp.databinding.ActivityCategoryWallpaperBinding
 import org.school.demoapp.ui.categoryWallpaper.adapter.CategoryWallpaperAdapter
 import org.school.demoapp.ui.categoryWallpaper.clicklistener.OnFav
 import org.school.demoapp.ui.homeScreen.HomeScreenViewModel
-import java.io.File
 import java.util.*
 
 class CategoryWallpaper : AppCompatActivity(), AppConstant, OnFav
@@ -31,11 +30,17 @@ class CategoryWallpaper : AppCompatActivity(), AppConstant, OnFav
     private val categoryWallpaperAdapter by lazy { CategoryWallpaperAdapter(this@CategoryWallpaper) }
     private var categoryName : String? = null
     private lateinit var downloadUrl : String
+    private lateinit var db : DataBaseHandler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         categoryBinding = DataBindingUtil.setContentView(this, R.layout.activity_category_wallpaper)
         viewModel = ViewModelProvider(this).get(HomeScreenViewModel::class.java)
+
+        if ( !::db.isInitialized )
+
+            db = DataBaseHandler(this@CategoryWallpaper )
+
         init()
         setEvent()
     }
@@ -76,10 +81,19 @@ class CategoryWallpaper : AppCompatActivity(), AppConstant, OnFav
 
     override fun onFavClick(hit: Hit)
     {
+        if ( ::db.isInitialized )
+        {
+            if ( hit.isFav )
 
+                db.insertData( hit )
+
+            else
+
+                db.deleteData( hit.userId )
+        }
     }
 
-    override fun onDownloadClick( hit : Hit ) {
+    override fun onDownloadClick( hit : Hit) {
 
         hit.largeImageURL.let {
 

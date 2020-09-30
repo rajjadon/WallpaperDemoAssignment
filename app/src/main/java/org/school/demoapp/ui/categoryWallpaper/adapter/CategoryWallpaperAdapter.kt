@@ -1,13 +1,12 @@
 package org.school.demoapp.ui.categoryWallpaper.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.school.demoapp.R
-import org.school.demoapp.data.Hit
+import org.school.demoapp.data.network.model.Hit
 import org.school.demoapp.databinding.CategoryRowBinding
 import org.school.demoapp.ui.categoryWallpaper.clicklistener.OnFav
 

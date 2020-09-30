@@ -1,8 +1,8 @@
-package org.school.demoapp.network
+package org.school.demoapp.data.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.school.demoapp.data.WallPapers
+import org.school.demoapp.data.network.model.WallPapers
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

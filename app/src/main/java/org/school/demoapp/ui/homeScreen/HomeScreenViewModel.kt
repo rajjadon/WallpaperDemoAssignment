@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.school.demoapp.data.WallPapers
-import org.school.demoapp.network.MyApi
+import org.school.demoapp.data.network.model.WallPapers
+import org.school.demoapp.data.network.MyApi
 
 class HomeScreenViewModel : ViewModel()
 {

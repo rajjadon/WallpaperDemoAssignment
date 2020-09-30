@@ -1,4 +1,4 @@
-package org.school.demoapp.data
+package org.school.demoapp.data.network.model
 
 
 import com.google.gson.annotations.SerializedName
@@ -48,5 +48,6 @@ data class Hit(
     val webformatURL: String,
     @SerializedName("webformatWidth")
     val webformatWidth: String,
+    val databaseId: String,
     var isFav: Boolean = false
 )
