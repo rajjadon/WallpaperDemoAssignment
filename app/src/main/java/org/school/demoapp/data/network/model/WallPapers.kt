@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class WallPapers(
     @SerializedName("hits")
-    val hits: List<Hit>,
+    val wallPaperLists: List<WallPaperList>,
     @SerializedName("total")
     val total: Int,
     @SerializedName("totalHits")

@@ -6,7 +6,7 @@
 
         <variable
             name="wallpaper"
-            type="org.school.demoapp.data.network.model.Hit" />
+            type="org.school.demoapp.data.network.model.WallPaperList" />
 
     </data>
 

@@ -6,8 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import org.school.demoapp.data.network.model.FavImageList
-import org.school.demoapp.data.network.model.Hit
-import org.school.demoapp.ui.categoryWallpaper.CategoryWallpaper
+import org.school.demoapp.data.network.model.WallPaperList
 
 val DATABASENAME = "MY DATABASE"
 val TABLENAME = "Wallpapers"
@@ -26,7 +25,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
         //onCreate(db);
     }
 
-    fun insertData( wallpaper: Hit)
+    fun insertData( wallpaper: WallPaperList)
     {
         val database = this.writableDatabase
         val contentValues = ContentValues()

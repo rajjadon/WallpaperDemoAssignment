@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity()
 
             mainViewModel.wallpapers.observe(this, Observer {
 
-                it?.hits?.get(1)?.largeImageURL?.let { image ->
+                it?.wallPaperLists?.get(1)?.largeImageURL?.let { image ->
 
                     Picasso.get().load(image).into(activityMainBinding.image)
 

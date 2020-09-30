@@ -15,7 +15,7 @@ import org.school.demoapp.AppConstant.category
 import org.school.demoapp.Downloader
 import org.school.demoapp.R
 import org.school.demoapp.data.local.DataBaseHandler
-import org.school.demoapp.data.network.model.Hit
+import org.school.demoapp.data.network.model.WallPaperList
 import org.school.demoapp.databinding.ActivityCategoryWallpaperBinding
 import org.school.demoapp.ui.categoryWallpaper.adapter.CategoryWallpaperAdapter
 import org.school.demoapp.ui.categoryWallpaper.clicklistener.OnFav
@@ -68,7 +68,7 @@ class CategoryWallpaper : AppCompatActivity(), AppConstant, OnFav
 
                 wallpapers?.let { hits ->
 
-                    hits.hits.let { hitList ->
+                    hits.wallPaperLists.let { hitList ->
 
                         categoryBinding.svCategory.isRefreshing = false
                         categoryWallpaperAdapter.wallpaperList = hitList
@@ -79,25 +79,25 @@ class CategoryWallpaper : AppCompatActivity(), AppConstant, OnFav
             })
     }
 
-    override fun onFavClick(hit: Hit)
+    override fun onFavClick(wallPaperList: WallPaperList)
     {
         if ( ::db.isInitialized )
         {
-            if ( hit.isFav )
+            if ( wallPaperList.isFav )
 
-                db.insertData( hit )
+                db.insertData( wallPaperList )
 
             else
 
-                db.deleteData( hit.userId )
+                db.deleteData( wallPaperList.userId )
         }
     }
 
-    override fun onDownloadClick( hit : Hit) {
+    override fun onDownloadClick(wallPaperList : WallPaperList) {
 
-        hit.largeImageURL.let {
+        wallPaperList.largeImageURL.let {
 
-            downloadUrl = hit.largeImageURL
+            downloadUrl = wallPaperList.largeImageURL
             checkPermissionForStorage( )
         }
 

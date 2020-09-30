@@ -3,7 +3,7 @@ package org.school.demoapp.data.network.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Hit(
+data class WallPaperList(
     @SerializedName("comments")
     val comments: String,
     @SerializedName("downloads")

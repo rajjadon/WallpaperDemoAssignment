@@ -6,13 +6,13 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import org.school.demoapp.R
-import org.school.demoapp.data.network.model.Hit
+import org.school.demoapp.data.network.model.WallPaperList
 import org.school.demoapp.databinding.CategoryRowBinding
 import org.school.demoapp.ui.categoryWallpaper.clicklistener.OnFav
 
 class CategoryWallpaperAdapter(val action : OnFav) : RecyclerView.Adapter<CategoryWallpaperAdapter.CategoryViewHolder>()
 {
-    var wallpaperList : List<Hit>? = null
+    var wallpaperList : List<WallPaperList>? = null
     set(value) {
         field = value
         notifyDataSetChanged()
