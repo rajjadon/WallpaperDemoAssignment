@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">DemoApp</string>
+    <string name="favorite">Favorite</string>
+    <string name="no_data_found">No data found</string>
 
     <string-array name="wallpaperCategories">
 

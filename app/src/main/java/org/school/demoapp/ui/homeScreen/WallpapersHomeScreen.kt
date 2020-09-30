@@ -9,8 +9,11 @@ import kotlinx.android.synthetic.main.activity_wallpapers_home_screen.*
 import org.school.demoapp.AppConstant
 import org.school.demoapp.AppConstant.category
 import org.school.demoapp.R
+import org.school.demoapp.data.local.DataBaseHandler
+import org.school.demoapp.data.network.model.FavImageList
 import org.school.demoapp.databinding.ActivityWallpapersHomeScreenBinding
 import org.school.demoapp.ui.categoryWallpaper.CategoryWallpaper
+import org.school.demoapp.ui.favoriteList.FavoriteImageList
 import org.school.demoapp.ui.homeScreen.adapter.CategoryAdapter
 import org.school.demoapp.ui.homeScreen.clickListener.CategoryOnClick
 import org.school.demoapp.ui.splash.MainViewModel
@@ -26,6 +29,16 @@ class WallpapersHomeScreen : AppCompatActivity(), CategoryOnClick, AppConstant
         categoryAdapter = CategoryAdapter(this, this)
         wallpapersHomeScreen.rvCategory.adapter = categoryAdapter
         categoryAdapter.notifyDataSetChanged()
+        setEvent()
+    }
+
+    private fun setEvent()
+    {
+        wallpapersHomeScreen.fab.setOnClickListener {
+
+            startActivity( Intent( this@WallpapersHomeScreen, FavoriteImageList::class.java ) )
+
+        }
     }
 
     override fun onClick(categoryName: String)

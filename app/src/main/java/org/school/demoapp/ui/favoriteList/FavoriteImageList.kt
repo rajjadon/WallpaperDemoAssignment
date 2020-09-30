@@ -2,6 +2,7 @@ package org.school.demoapp.ui.favoriteList
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import org.school.demoapp.R
 import org.school.demoapp.data.local.DataBaseHandler
@@ -26,8 +27,15 @@ class FavoriteImageList : AppCompatActivity(), onUnFav
 
         if ( ::db.isInitialized )
         {
-            fabImageAdapter.favoriteList = db.readData()
-            favoriteImageBinding.rvFavorite.adapter = fabImageAdapter
+            val favList = db.readData()
+
+            if ( favList.isNotEmpty() )
+            {
+                fabImageAdapter.favoriteList = favList
+                favoriteImageBinding.rvFavorite.adapter = fabImageAdapter
+            }
+            else
+                favoriteImageBinding.includeNoData.noData.visibility = View.VISIBLE
         }
     }
 

@@ -15,7 +15,7 @@ import org.school.demoapp.ui.favoriteList.onClickListener.onUnFav
 
 class FavoriteAdapter(val action : onUnFav) : RecyclerView.Adapter<ViewHolder>() {
 
-    var favoriteList : List<FavImageList>? = null
+    var favoriteList : MutableList<FavImageList>? = null
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -30,13 +30,15 @@ class FavoriteAdapter(val action : onUnFav) : RecyclerView.Adapter<ViewHolder>()
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         var fabvorite = favoriteList?.get(position)
-        
+
+        holder.binding.wallpaper = fabvorite
+
         holder.binding.favUnFave.setOnClickListener {
 
             fabvorite?.let {
-
-                holder.binding.favUnFave.setImageDrawable( ContextCompat.getDrawable( holder.binding.favUnFave.context, R.drawable.ic_baseline_favorite_border ) )
                 action.onUnfavClick( it )
+                favoriteList?.removeAt(position)
+                notifyDataSetChanged()
             }
         }
         
