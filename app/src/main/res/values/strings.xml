@@ -2,6 +2,7 @@
     <string name="app_name">DemoApp</string>
     <string name="favorite">Favorite</string>
     <string name="no_data_found">No data found</string>
+    <string name="internet_error">no internet connection</string>
 
     <string-array name="wallpaperCategories">
 
